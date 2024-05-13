@@ -95,13 +95,10 @@ screenshot_obj = driver.save_screenshot("screenshot.png")
 
 # Crop the screenshot based on the table size
 # from PIL import Image
-num_games = len(american_league_results)
 
-if len(national_league_results) > num_games:
-    num_games = len(national_league_results)
-
-if len(interleague_results) > num_games:
-    num_games = len(interleague_results)
+num_games = max(
+    len(american_league_results), len(national_league_results), len(interleague_results)
+)
 
 img = Image.open("screenshot.png")
 width = img.width
