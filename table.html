@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&display=swap" rel="stylesheet">
+
+    <title>Weekend Series Results</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-family: "Noto Emoji", sans-serif;
+            text-align: center;
+
+        }
+
+        table {
+            margin-top: 10px;
+            margin-right: 10px;
+            /* Add some space above each table */
+        }
+
+        h1,
+        h2 {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            /* Make the body a flex container */
+            justify-content: space-around;
+            /* Distribute tables horizontally with space between */
+        }
+
+        table {
+            width: 45%;
+            /* Set width for each table */
+        }
+
+        .title {
+            text-align: center;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .regular {
+            font-weight: normal;
+        }
+
+        .light-green-background {
+            background-color: #b2e1c7;
+            font-weight: 600;
+            /* Adjust the hex code for your desired green shade */
+        }
+
+        .white_background {
+            background-color: white;
+        }
+
+        .league-text {
+            border-left: 0px;
+            border-right: 0px;
+            border-top: 0px;
+            font-size: medium;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .bold-line-after {
+            border-bottom: 4px solid black;
+            border-left: 4px solid black;
+            border-right: 4px solid black;
+            /* Define thicker bottom border */
+        }
+
+        .bold-line-before {
+            border-top: 4px solid black;
+            border-left: 4px solid black;
+            border-right: 4px solid black;
+            /* Define thicker bottom border */
+        }
+    </style>
+</head>
+
+<!-- TODO: Make the leagues generic -->
+
+<body id="some-class-to-target">
+    <h1 class="title">Weekend Series Recap</h1>
+    <div class="content">
+        <table>
+            <thead>
+                <tr class="league-text">
+                    <th>American League</th>
+                </tr>
+            </thead>
+            
+            <tr class="bold-line-before">
+                <td class="light-green-background">Houston &nbsp;</td>
+                
+                <td class="bold">5</td>
+                
+                <td class="regular">2</td>
+                
+                <td class="bold">9</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="white-background">Detroit &nbsp;
+                </td>
+                
+                <td class="regular">2</td>
+                
+                <td class="bold">8</td>
+                
+                <td class="regular">3</td>
+                
+            </tr>
+            
+            <tr class="bold-line-before">
+                <td class="light-green-background">NY Yankees &nbsp;</td>
+                
+                <td class="bold">2</td>
+                
+                <td class="regular">2</td>
+                
+                <td class="bold">10</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="white-background">Tampa Bay &nbsp;
+                </td>
+                
+                <td class="regular">0</td>
+                
+                <td class="bold">7</td>
+                
+                <td class="regular">6</td>
+                
+            </tr>
+            
+            <tr class="bold-line-before">
+                <td class="light-green-background">Minnesota &nbsp;</td>
+                
+                <td class="bold">3</td>
+                
+                <td class="regular">8</td>
+                
+                <td class="bold">5</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="white-background">Toronto &nbsp;
+                </td>
+                
+                <td class="regular">2</td>
+                
+                <td class="bold">10</td>
+                
+                <td class="regular">1</td>
+                
+            </tr>
+            
+            <tr class="bold-line-before">
+                <td class="white-background">Cleveland &nbsp;</td>
+                
+                <td class="regular">3</td>
+                
+                <td class="regular">1</td>
+                
+                <td class="bold">7</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="light-green-background">Chi White Sox &nbsp;
+                </td>
+                
+                <td class="bold">6</td>
+                
+                <td class="bold">3</td>
+                
+                <td class="regular">0</td>
+                
+            </tr>
+            
+            <tr class="bold-line-before">
+                <td class="light-green-background">Kansas City &nbsp;</td>
+                
+                <td class="bold">2</td>
+                
+                <td class="regular">3</td>
+                
+                <td class="bold">4</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="white-background">LA Angels &nbsp;
+                </td>
+                
+                <td class="regular">1</td>
+                
+                <td class="bold">9</td>
+                
+                <td class="regular">2</td>
+                
+            </tr>
+            
+            <tr class="bold-line-before">
+                <td class="white-background">Oakland &nbsp;</td>
+                
+                <td class="regular">1</td>
+                
+                <td class="bold">8</td>
+                
+                <td class="regular">4</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="light-green-background">Seattle &nbsp;
+                </td>
+                
+                <td class="bold">8</td>
+                
+                <td class="regular">1</td>
+                
+                <td class="bold">8</td>
+                
+            </tr>
+            
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>National League</th>
+                </tr>
+            </thead>
+            
+
+            <tr class="bold-line-before">
+                <td class="light-green-background">Chi Cubs &nbsp;</td>
+                
+                <td class="bold">7</td>
+                
+                <td class="regular">9</td>
+                
+                <td class="bold">5</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="white-background">Pittsburgh&nbsp;
+                </td>
+                
+                <td class="regular">2</td>
+                
+                <td class="bold">10</td>
+                
+                <td class="regular">4</td>
+                
+            </tr>
+
+            
+
+            <tr class="bold-line-before">
+                <td class="light-green-background">Atlanta &nbsp; &#129529;</td>
+                
+                <td class="bold">4</td>
+                
+                <td class="bold">4</td>
+                
+                <td class="bold">3</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="white-background">NY Mets&nbsp;
+                </td>
+                
+                <td class="regular">2</td>
+                
+                <td class="regular">1</td>
+                
+                <td class="regular">2</td>
+                
+            </tr>
+
+            
+
+            <tr class="bold-line-before">
+                <td class="light-green-background">Philadelphia &nbsp;</td>
+                
+                <td class="bold">8</td>
+                
+                <td class="bold">8</td>
+                
+                <td class="regular">6</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="white-background">Miami&nbsp;
+                </td>
+                
+                <td class="regular">2</td>
+                
+                <td class="regular">3</td>
+                
+                <td class="bold">7</td>
+                
+            </tr>
+
+            
+
+            <tr class="bold-line-before">
+                <td class="white-background">St. Louis &nbsp;</td>
+                
+                <td class="regular">2</td>
+                
+                <td class="regular">3</td>
+                
+                <td class="bold">4</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="light-green-background">Milwaukee&nbsp;
+                </td>
+                
+                <td class="bold">11</td>
+                
+                <td class="bold">5</td>
+                
+                <td class="regular">3</td>
+                
+            </tr>
+
+            
+
+            <tr class="bold-line-before">
+                <td class="white-background">LA Dodgers &nbsp;</td>
+                
+                <td class="regular">1</td>
+                
+                <td class="bold">5</td>
+                
+                <td class="regular">0</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="light-green-background">San Diego&nbsp;
+                </td>
+                
+                <td class="bold">2</td>
+                
+                <td class="regular">0</td>
+                
+                <td class="bold">4</td>
+                
+            </tr>
+
+            
+
+            <tr class="bold-line-before">
+                <td class="white-background">Cincinnati &nbsp;</td>
+                
+                <td class="bold">4</td>
+                
+                <td class="regular">1</td>
+                
+                <td class="regular">5</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="light-green-background">San Francisco&nbsp;
+                </td>
+                
+                <td class="regular">2</td>
+                
+                <td class="bold">5</td>
+                
+                <td class="bold">6</td>
+                
+            </tr>
+
+            
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Interleague</th>
+                </tr>
+            </thead>
+            
+            <tr class="bold-line-before">
+                <td class="white-background">Arizona &nbsp;</td>
+                
+                <td class="regular">2</td>
+                
+                <td class="regular">4</td>
+                
+                <td class="bold">9</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="light-green-background">Baltimore &nbsp;
+                </td>
+                
+                <td class="bold">4</td>
+                
+                <td class="bold">5</td>
+                
+                <td class="regular">2</td>
+                
+            </tr>
+            
+            <tr class="bold-line-before">
+                <td class="white-background">Washington &nbsp;</td>
+                
+                <td class="bold">5</td>
+                
+                <td class="regular">2</td>
+                
+                <td class="regular">2</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="light-green-background">Boston &nbsp;
+                </td>
+                
+                <td class="regular">1</td>
+                
+                <td class="bold">4</td>
+                
+                <td class="bold">3</td>
+                
+            </tr>
+            
+            <tr class="bold-line-before">
+                <td class="white-background">Texas &nbsp;</td>
+                
+                <td class="regular">2</td>
+                
+                <td class="regular">3</td>
+                
+                <td class="regular">1</td>
+                
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="light-green-background">Colorado &nbsp; &#129529
+                </td>
+                
+                <td class="bold">4</td>
+                
+                <td class="bold">8</td>
+                
+                <td class="bold">3</td>
+                
+            </tr>
+            
+        </table>
+    </div>
+
+</body>
+
+</html>

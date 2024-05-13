@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&display=swap" rel="stylesheet">
+
+    <title>Weekend Series Results</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            font-family: "Noto Emoji", sans-serif;
+            text-align: center;
+
+        }
+
+        table {
+            margin-top: 10px;
+            margin-right: 10px;
+            /* Add some space above each table */
+        }
+
+        h1,
+        h2 {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            /* Make the body a flex container */
+            justify-content: space-around;
+            /* Distribute tables horizontally with space between */
+        }
+
+        table {
+            width: 45%;
+            /* Set width for each table */
+        }
+
+        .title {
+            text-align: center;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .regular {
+            font-weight: normal;
+        }
+
+        .light-green-background {
+            background-color: #b2e1c7;
+            font-weight: 600;
+            /* Adjust the hex code for your desired green shade */
+        }
+
+        .white_background {
+            background-color: white;
+        }
+
+        .league-text {
+            border-left: 0px;
+            border-right: 0px;
+            border-top: 0px;
+            font-size: medium;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .bold-line-after {
+            border-bottom: 4px solid black;
+            border-left: 4px solid black;
+            border-right: 4px solid black;
+            /* Define thicker bottom border */
+        }
+
+        .bold-line-before {
+            border-top: 4px solid black;
+            border-left: 4px solid black;
+            border-right: 4px solid black;
+            /* Define thicker bottom border */
+        }
+    </style>
+</head>
+
+<!-- TODO: Make the leagues generic -->
+
+<body id="some-class-to-target">
+    <h1 class="title">{{title}}</h1>
+    <div class="content">
+        <table>
+            <thead>
+                <tr class="league-text">
+                    <th>American League</th>
+                </tr>
+            </thead>
+            {% for series in american_league%}
+            <tr class="bold-line-before">
+                <td class="{{'light-green-background' if series.away_team_won else 'white-background'}}">{{
+                    series.away_team }} {{"&nbsp; &#129529" if series.away_team_swept else '&nbsp;'}}</td>
+                {% for game_score in series.away_runs %}
+                <td class="{{ 'bold' if game_score.won else 'regular' }}">{{ game_score.runs }}</td>
+                {% endfor %}
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="{{'light-green-background' if series.home_team_won else 'white-background'}}">{{
+                    series.home_team
+                    }} {{"&nbsp; &#129529" if series.home_team_swept else '&nbsp;'}}
+                </td>
+                {% for game_score in series.home_runs %}
+                <td class="{{ 'bold' if game_score.won else 'regular' }}">{{ game_score.runs }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>National League</th>
+                </tr>
+            </thead>
+            {% for series in national_league%}
+
+            <tr class="bold-line-before">
+                <td class="{{'light-green-background' if series.away_team_won else 'white-background'}}">{{
+                    series.away_team }} {{"&nbsp; &#129529;" if series.away_team_swept else '&nbsp;'}}</td>
+                {% for game_score in series.away_runs %}
+                <td class="{{ 'bold' if game_score.won else 'regular' }}">{{ game_score.runs }}</td>
+                {% endfor %}
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="{{'light-green-background' if series.home_team_won else 'white-background'}}">{{
+                    series.home_team
+                    }}{{"&nbsp; &#129529;" if series.home_team_swept else '&nbsp;'}}
+                </td>
+                {% for game_score in series.home_runs %}
+                <td class="{{ 'bold' if game_score.won else 'regular' }}">{{ game_score.runs }}</td>
+                {% endfor %}
+            </tr>
+
+            {% endfor %}
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Interleague</th>
+                </tr>
+            </thead>
+            {% for series in interleague%}
+            <tr class="bold-line-before">
+                <td class="{{'light-green-background' if series.away_team_won else 'white-background'}}">{{
+                    series.away_team }} {{"&nbsp; &#129529;" if series.away_team_swept else '&nbsp;'}}</td>
+                {% for game_score in series.away_runs %}
+                <td class="{{ 'bold' if game_score.won else 'regular' }}">{{ game_score.runs }}</td>
+                {% endfor %}
+            </tr>
+            <tr class='bold-line-after'>
+                <td class="{{'light-green-background' if series.home_team_won else 'white-background'}}">{{
+                    series.home_team
+                    }} {{"&nbsp; &#129529" if series.home_team_swept else '&nbsp;'}}
+                </td>
+                {% for game_score in series.home_runs %}
+                <td class="{{ 'bold' if game_score.won else 'regular' }}">{{ game_score.runs }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+
+</html>
