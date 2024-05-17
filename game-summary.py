@@ -8,6 +8,7 @@ from utils import find_last_friday, find_last_monday, set_league_results
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from PIL import Image
 
 # Load the Jinja2 template
 template_loader = jinja2.FileSystemLoader("templates")
@@ -92,14 +93,20 @@ driver.get(path)
 driver.maximize_window()
 screenshot_obj = driver.save_screenshot("screenshot.png")
 
-# TODO: intelligently crop the screenshot based on the table size
+# Crop the screenshot based on the table size
 # from PIL import Image
 
-# img = Image.open("screenshot.png")
-# width, height = img.size
-# crop_area = (0, 0, width, height)
-# cropped_img = img.crop(crop_area)
-# img.save("screenshot.png")
+num_games = max(
+    len(american_league_results), len(national_league_results), len(interleague_results)
+)
+
+img = Image.open("screenshot.png")
+width = img.width
+height = (num_games * 66.6) + 200
+crop_area = (0, 0, width, height)
+cropped_img = img.crop(crop_area)
+cropped_img.save("screenshot.png")
+
 driver.quit()
 
 
