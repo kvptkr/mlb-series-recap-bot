@@ -84,7 +84,7 @@ with open("table.html", "w") as f:
 
 options = Options()
 options.add_argument("--headless")
-options.add_argument("--window-size=800,600")
+options.add_argument("--window-size=800,1000")
 driver = webdriver.Chrome(options=options)
 
 
