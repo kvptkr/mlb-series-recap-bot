@@ -1,4 +1,5 @@
 from collections import defaultdict
+import datetime
 import jinja2
 from datetime import date, timedelta
 import calendar
@@ -41,13 +42,44 @@ except:
     breakpoint()
 
 
+checked_series = set()
+
 al_series = defaultdict(list)
 nl_series = defaultdict(list)
 il_series = defaultdict(list)
-
-for game in games:
+i = 0
+while i < len(games):
+    # check to see if this wasn't the first game of the series. 0-0 is required in the case of a rainout
+    game = games[i]
     home_team_id = game["home_id"]
     away_team_id = game["away_id"]
+    game_date = datetime.datetime.strptime(game["game_date"], "%Y-%m-%d").date()
+
+    if (
+        any(
+            status in game["series_status"] for status in ["1-1", "0-2"]
+        )  # indicates at least one game has been played so far. Games should be sorted by start time/date
+        and game_date == start_date
+        and (home_team_id, away_team_id) not in checked_series
+    ):
+        try:
+            previous_games = statsapi.schedule(
+                date=None,
+                start_date=start_date - timedelta(days=1),
+                end_date=start_date - timedelta(days=1),
+                team=game["home_id"],
+            )
+        except Exception:
+            breakpoint()  # TODO: figure out why this only works with a breakpoint
+        finally:
+            for previous_game in previous_games:
+                if (
+                    previous_game["away_id"] == away_team_id
+                    and previous_game["home_id"] == home_team_id
+                ):
+                    games.append(previous_game)
+            checked_series.add((home_team_id, away_team_id))
+
     if teams_data[home_team_id]["al"] and teams_data[away_team_id]["al"]:
         al_series[(home_team_id, away_team_id)].append(game)
     elif teams_data[home_team_id]["al"] and not teams_data[away_team_id]["al"]:
@@ -56,6 +88,7 @@ for game in games:
         il_series[(home_team_id, away_team_id)].append(game)
     else:
         nl_series[(home_team_id, away_team_id)].append(game)
+    i += 1
 
 
 american_league_results = []
